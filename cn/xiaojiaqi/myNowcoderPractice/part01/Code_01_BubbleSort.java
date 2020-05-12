@@ -2,13 +2,18 @@ package part01;
 
 import java.util.Arrays;
 
+/**
+ *  * 冒泡排序
+ *  * 时间复杂度O(n^2)
+ *  * 额外空间复杂度O(1)
+ */
 public class Code_01_BubbleSort {
 
 	public static void bubbleSort(int[] arr) {
 		if(arr!=null&&arr.length>0) {
 			for(int i=0;i<arr.length;i++) {
 				for(int j=0;j<arr.length-i-1;j++) {
-					if(arr[j]>arr[j+1])swap(arr, j, j+1);
+					if(arr[j]>arr[j+1])swap(arr, j, j+1);  // 每一遍遍历最大的数冒出来，排到最后
 				}
 			}
 		}

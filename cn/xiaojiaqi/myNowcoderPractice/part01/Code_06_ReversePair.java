@@ -94,7 +94,7 @@ public class Code_06_ReversePair {
 				System.out.println(Arrays.toString(arr));
 				System.out.println("res1:"+res1+"  res2:"+res2);
 				break;
-			}
+			}			
 		}
 		System.out.println(success?"Nice!":"Fucking fucked!");
 	}

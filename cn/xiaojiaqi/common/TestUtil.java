@@ -34,7 +34,7 @@ public class TestUtil {
 		if(cols > 10000){
 			cols  = 10000;
 		}
-		return generateArr(1,cols+1,Integer.MIN_VALUE,Integer.MAX_VALUE)[0];
+		return generateArr(1,cols+1,-10000,10000)[0];
 	}
 
 	public static int[] generateArr_unique(int length,int left,int right) {
