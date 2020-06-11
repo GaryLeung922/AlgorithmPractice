@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import cn.xiaojiaqi.sword2Offer.ListNode;
-
 public class Leetcode_148_Sort_List {
     public static ListNode sortList(ListNode head) {
         List<ListNode> list = new ArrayList<>();
