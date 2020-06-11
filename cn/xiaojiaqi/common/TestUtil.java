@@ -25,7 +25,7 @@ public class TestUtil {
 	}
 
 	public static int[] generateArr(int cols) {
-		return generateArr(1,cols,Integer.MIN_VALUE,Integer.MAX_VALUE)[0];
+		return generateArr(1,cols,-10000,10000)[0];
 	}
 
 	public static int[] generateArr(){

@@ -1,4 +1,4 @@
-package part02;
+package cn.xiaojiaqi.myNowcoderPractice.part02;
 
 import java.util.Arrays;
 
@@ -46,6 +46,7 @@ public class Code_03_HeapSort {
 //		}
 	}
 	//往堆尾增加元素
+	// 浮到顶
 	public static void heapInsert(int[] arr,int index) {
 		int parent = (index-1)/2;
 		while(parent>=0&&arr[index]>arr[parent]) {
@@ -72,7 +73,7 @@ public class Code_03_HeapSort {
 		
 		boolean success = true;
 		for(int i=0;i<99999;i++) {
-			arr = cn.xiaojiaqi.common.TestUtil.generateArr(1, 5, 0, 10)[0];
+			arr = cn.xiaojiaqi.common.TestUtil.generateArr(1, 50, 0, 10)[0];
 			String arrstr = Arrays.toString(arr);
 			heapSort(arr);
 			String str1 = Arrays.toString(arr);

@@ -1,4 +1,4 @@
-package part02;
+package cn.xiaojiaqi.myNowcoderPractice.part02;
 
 import java.util.ArrayList;
 import java.util.Arrays;
