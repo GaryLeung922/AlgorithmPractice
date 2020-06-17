@@ -1,6 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
 
 
+import cn.xiaojiaqi.common.ListNode;
 
 public class Code_02_Palindrome {
     public static boolean isPalindrome(ListNode pHead) {

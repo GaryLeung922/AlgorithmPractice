@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
 
+import cn.xiaojiaqi.common.ListNode;
+
 /*
 public class ListNode {
     int val;

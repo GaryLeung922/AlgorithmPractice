@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
 
+import java.io.IOException;
+
 /**
  * 复杂链表的复制
  * 输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针random指向一个随机节点），
@@ -9,8 +11,9 @@ package cn.xiaojiaqi.sword2Offer;
  */
 public class JZ25 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+        System.in.read();
 
     }
 
@@ -25,6 +28,7 @@ public class JZ25 {
             newNode.next = next;
             pHead = next;
         }
+        return null;
 
     }
 

@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
+import cn.xiaojiaqi.common.ListNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

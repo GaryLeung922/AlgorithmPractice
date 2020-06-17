@@ -1,6 +1,9 @@
 package cn.xiaojiaqi.sword2Offer;
+
+import cn.xiaojiaqi.common.ListNode;
+
 public class Solution20 {
-    public static ListNode Merge(ListNode list1,ListNode list2) {
+    public static ListNode Merge(ListNode list1, ListNode list2) {
         if(list1!=null&&list2!=null){
             ListNode head=null;
             ListNode p;
