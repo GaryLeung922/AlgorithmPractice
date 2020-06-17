@@ -66,6 +66,7 @@ public class JZ36 {
             p1 = p1.next;
             L1++;
             p2 = p2.next;
+            L2++;
 
         }
         if(p1.next == t1){
@@ -103,5 +104,30 @@ public class JZ36 {
             }
             return p1;
         }
+    }
+
+    public static void main(String[] args) {
+        ListNode pHead1 = new ListNode(3);
+        ListNode a = new ListNode(4);
+        ListNode b = new ListNode(5);
+        ListNode c = new ListNode(6);
+        ListNode d = new ListNode(7);
+        ListNode e = new ListNode(8);
+        ListNode pHead2 = new ListNode(0);
+        ListNode pa = new ListNode(2);
+
+        pHead1.next = a;
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        d.next = e;
+
+        pHead2.next = pa;
+        pa.next = c;
+
+        JZ36 jz = new JZ36();
+        ListNode node = jz.FindFirstCommonNode(pHead1, pHead2);
+
+
     }
 }
