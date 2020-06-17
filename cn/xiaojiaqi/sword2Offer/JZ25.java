@@ -19,14 +19,31 @@ public class JZ25 {
 
     public static RandomListNode Clone(RandomListNode pHead)
     {
-        RandomListNode oldHead = pHead;
-        if(pHead == null)return null;
-        while (pHead != null){
-            RandomListNode newNode = new RandomListNode(pHead.label);
-            RandomListNode next = pHead.next;
-            pHead.next = newNode;
-            newNode.next = next;
-            pHead = next;
+        if(pHead!=null){
+            RandomListNode p = pHead;
+            RandomListNode newp;
+            while(p!=null){
+                newp = new RandomListNode(p.label);
+                newp.next = p.next;
+                p.next = newp;
+                p = newp.next;
+            }
+            p = pHead;
+            while(p!=null){
+                newp = p.next;
+                newp.random = p.random==null?null:p.random.next;
+                p = newp.next;
+            }
+            p = pHead;
+            RandomListNode newRoot = null;
+            while(p!=null){
+                newp = p.next;
+                newRoot = newRoot==null?newp:newRoot;
+                p.next  = newp.next;
+                newp.next = p.next==null?null:p.next.next;
+                p = p.next;
+            }
+            return newRoot;
         }
         return null;
 
