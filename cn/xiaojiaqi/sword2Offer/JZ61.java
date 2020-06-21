@@ -1,5 +1,10 @@
 package cn.xiaojiaqi.sword2Offer;
 
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 序列化二叉树
  * 请实现两个函数，分别用来序列化和反序列化二叉树
@@ -16,6 +21,43 @@ package cn.xiaojiaqi.sword2Offer;
  */
 public class JZ61 {
     public static void main(String[] args) {
+        JZ61 jz61 = new JZ61();
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(11);
 
+        String s = jz61.Serialize(root);
+        System.out.println(s);
+        System.out.println(Arrays.toString(s.split("!")));
+        TreeNode root2 = jz61.Deserialize(s);
+        String s2 = jz61.Serialize(root2);
+        System.out.println(s2);
+
+//        TreeNode treeNode = jz61.Deserialize(s);
+//
+//        SerAndDeSer.printTree(treeNode);
+
+    }
+
+    String Serialize(TreeNode root) {
+        if(root == null)return "#!";
+        return String.valueOf(root.val)+"!"+Serialize(root.left)+Serialize(root.right);
+    }
+    TreeNode Deserialize(String str) {
+        if(str==null || str.equals(""))return null;
+        Queue<String> queue = new LinkedList<>();
+        String[] strs = str.split("!");
+        for(String string: strs){
+            queue.offer(string);
+        }
+        return Deserialize(queue);
+    }
+    TreeNode Deserialize(Queue<String> strs){
+        String str = strs.poll();
+        TreeNode root = "#".equals(str) ? null : new TreeNode(Integer.valueOf(str));
+        if(root==null) return null;
+        root.left = Deserialize(strs);
+        root.right = Deserialize(strs);
+        return root;
     }
 }

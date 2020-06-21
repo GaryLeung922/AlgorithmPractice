@@ -110,6 +110,7 @@ public class SerAndDeSer {
 		return null;
 		
 	}
+
 	public static String serializeByPre(TreeNode root) {
 		if(root==null)return "#!";
 		return root.val+"!"+serializeByPre(root.left)+serializeByPre(root.right);
