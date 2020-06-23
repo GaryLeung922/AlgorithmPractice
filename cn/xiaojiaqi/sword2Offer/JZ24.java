@@ -15,6 +15,16 @@ public class JZ24 {
     ArrayList<ArrayList<Integer>> result = new ArrayList<>();
     ArrayList<Integer> path = new ArrayList<>();
     public static void main(String[] args) {
+        TreeNode node = new TreeNode(3);
+        node.left = new TreeNode(4);
+        node.right = new TreeNode(5);
+        node.left.left =new TreeNode(2);
+        node.right.left = new TreeNode(1);
+        node.right.right = new TreeNode(7);
+
+        JZ24 jz24 = new JZ24();
+        jz24.FindPath(node, 9);
+        System.out.println(jz24.result);
 
     }
     public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
@@ -27,10 +37,13 @@ public class JZ24 {
         path.add(root.val);
         if(root.left==null && root.right==null){
             if(target == root.val){
-                result.add(new ArrayList(Arrays.asList(path)));
+                ArrayList<Integer> array = new ArrayList<>();
+                path.forEach(e ->{
+                    array.add(Integer.valueOf(e.intValue()));
+                });
+                result.add(array);
             }
-            path.remove(path.size()-1);
-            return;
+
         }else {
             if(root.left!=null){
                 findPath(root.left, target-root.val);
@@ -40,5 +53,7 @@ public class JZ24 {
             }
 
         }
+        path.remove(path.size()-1);
+        return;
     }
 }
