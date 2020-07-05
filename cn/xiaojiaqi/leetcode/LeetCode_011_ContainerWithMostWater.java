@@ -20,7 +20,7 @@ public class LeetCode_011_ContainerWithMostWater {
         while(left<right){
             max = Math.max(Math.min(height[left],height[right])*(right-left),max);
 
-            // who less turn whose direction.
+            // who less, turn whose direction.
             if(height[left]<height[right]){
                 left++;
             }else {
