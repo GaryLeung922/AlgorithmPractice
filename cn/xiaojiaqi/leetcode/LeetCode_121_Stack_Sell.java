@@ -1,6 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
 /**
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
  * @Author: liangjiaqi
  * @Date: 2020/7/4 7:55 AM
  */
@@ -36,7 +37,7 @@ public class LeetCode_121_Stack_Sell {
     }
 
     /**
-     * 官方解答，用的变量更少
+     * 官方解答，用的变量更少。
      */
     class Solution2{
         public int maxProfit(int prices[]) {
@@ -51,4 +52,21 @@ public class LeetCode_121_Stack_Sell {
             return maxprofit;
         }
     }
+    /**
+     * 一维DP
+     */
+    class Solution3{
+        public int maxProfit(int prices[]) {
+            int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
+
+            for (int price : prices) {
+                int T_ik0_old = T_ik0;
+                T_ik0 = Math.max(T_ik0, T_ik1 + price);
+                T_ik1 = Math.max(T_ik1, T_ik0_old - price);
+            }
+
+            return T_ik0;
+        }
+    }
+
 }
