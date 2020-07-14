@@ -56,6 +56,8 @@ public class Code_03_Manacher {
 		}
 		return max/2;
 	}
+
+
 	//自己的马拉车算法。
 	public static int manacher(String str) {
 		if(str!=null&&str.length()>0) {
