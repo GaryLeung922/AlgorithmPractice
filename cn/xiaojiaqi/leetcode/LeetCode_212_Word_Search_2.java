@@ -1,6 +1,5 @@
 package cn.xiaojiaqi.leetcode;
 
-import jdk.nashorn.internal.runtime.ListAdapter;
 
 import java.util.Arrays;
 import java.util.HashSet;
