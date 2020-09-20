@@ -1,6 +1,8 @@
 package cn.xiaojiaqi.leetcode;
 
 
+import cn.xiaojiaqi.common.TreeNode;
+
 public class Solution104 {
     static int depth = 0;
     public static int maxDepth(TreeNode root) {

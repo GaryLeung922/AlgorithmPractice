@@ -1,4 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
+
+import cn.xiaojiaqi.common.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public static class ListNode {
@@ -8,11 +11,6 @@ package cn.xiaojiaqi.sword2Offer;
  * }
  */
 public class Solution35 {
-	public static class ListNode {
-		      int val;
-		      ListNode next;
-		      ListNode(int x) { val = x; }
-	}
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int c=0;
         ListNode head;

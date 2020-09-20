@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.oj;
 
+import sun.jvm.hotspot.utilities.Assert;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,24 +27,79 @@ public class Test {
 //        // 思路正确 结果错误
 //
 
-        int[] nums = {2, 1, -2, 3};
-        int target = 5;
-        System.out.println(closestNumber(nums, target));
+//        int[] nums = {2, 1, -2, 3};
+//        int target = 5;
+//        System.out.println(closestNumber(nums, target));
+//
+//        nums = new int[]{2, 1, -9, 15};
+//        System.out.println(closestNumber(nums, target));
+//
+//        int W = 3;
+//        int[][] R = {{0,1,600},{1,2,800},{0,2,1300}};
+//        int A = 0;
+//        int B = 2;
+//
+//        System.out.println(findAirTicketPrice(W,R,A,B));
+//
+//        R = new int[][]{{0,1,600},{1,2,500},{0,2,1300}};
+//
+//        System.out.println(findAirTicketPrice(W,R,A,B));
 
-        nums = new int[]{2, 1, -9, 15};
-        System.out.println(closestNumber(nums, target));
+        String cardNo = "1A2w3e4r";
+        String res = "123465119101114";
 
-        int W = 3;
-        int[][] R = {{0,1,600},{1,2,800},{0,2,1300}};
-        int A = 0;
-        int B = 2;
+        String s = CardNoConvert(cardNo);
+        System.out.println(s);
 
-        System.out.println(findAirTicketPrice(W,R,A,B));
+        String ss = "1,2,6,1,0,16";
+        int k =2;
+        int maxProfit = maxProfit(k, ss);
+        System.out.println(maxProfit);
 
-        R = new int[][]{{0,1,600},{1,2,500},{0,2,1300}};
-
-        System.out.println(findAirTicketPrice(W,R,A,B));
     }
+
+    public static String findNum(String cardNo){
+        String cardNum = "";
+        String[] str = cardNo.split("");
+        for(int i = 0; i < str.length; i++){
+            if(str[i].matches("[0-9]+")){
+                cardNum = cardNum + str[i];
+            }
+        }
+        return cardNum;
+    }
+    public static int maxProfit(int k, String str) {
+        int res = 0;
+
+        return  res;
+    }
+    static int dfs(int[] input, int index, int status, int time, int k){
+        if(index==input.length||time==k) return 0;
+        int none,buy = 0,sell = 0;
+        none = dfs(input,index+1,status,time,k);
+        if(status==1) sell = dfs(input,index+1,0,time+1,k)+input[index];
+        else buy = dfs(input,index+1,1,time,k)-input[index];
+        return Math.max(Math.max(none,buy),sell);
+    }
+
+    public static String findChar(String cardNo){
+        String cardChar = "";
+        String[] str = cardNo.split("");
+        for(int i = 0; i < str.length; i++){
+            if(str[i].matches(".[a-z][A-Z] + .")){
+                byte byteAscii = (byte)str[i].toCharArray()[0];
+                cardChar = cardChar + byteAscii;
+            }
+        }
+        return cardChar;
+    }
+
+    public static String CardNoConvert(String cardNo){
+        String findNum = findNum(cardNo);
+        String findChar = findChar(cardNo);
+        return (findNum + findChar);
+    }
+
 
     public static int findAirTicketPrice(int W,int[][] R,int A,int B){
         return 0;

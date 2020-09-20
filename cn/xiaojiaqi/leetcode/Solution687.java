@@ -1,4 +1,7 @@
 package cn.xiaojiaqi.leetcode;
+
+import cn.xiaojiaqi.common.TreeNode;
+
 public class Solution687 {
     public static int longestUnivaluePath(TreeNode root) {
         

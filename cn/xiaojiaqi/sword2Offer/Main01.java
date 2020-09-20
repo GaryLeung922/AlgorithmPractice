@@ -2,6 +2,8 @@ package cn.xiaojiaqi.sword2Offer;
 /**
  * 
  */
+import cn.xiaojiaqi.common.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -49,13 +51,4 @@ public class Main01{
             
         };
     }
-    public static class TreeNode{
-        char val;
-        TreeNode left;
-        TreeNode right;
-        public TreeNode(char val){
-            this.val = val;
-        }
-    }
-    
 }

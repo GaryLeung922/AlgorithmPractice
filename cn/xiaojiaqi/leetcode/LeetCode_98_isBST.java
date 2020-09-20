@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 import java.util.LinkedList;
 
 public class LeetCode_98_isBST {

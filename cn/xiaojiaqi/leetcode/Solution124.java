@@ -1,4 +1,7 @@
 package cn.xiaojiaqi.leetcode;
+
+import cn.xiaojiaqi.common.TreeNode;
+
 public class Solution124 {
     public static int maxPathSum(TreeNode root) {
         ReturnType res = maxPath(root);

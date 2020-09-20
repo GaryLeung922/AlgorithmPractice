@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 

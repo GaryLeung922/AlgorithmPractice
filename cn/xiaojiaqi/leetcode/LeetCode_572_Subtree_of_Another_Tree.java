@@ -1,4 +1,7 @@
 package cn.xiaojiaqi.leetcode;
+
+import cn.xiaojiaqi.common.TreeNode;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {

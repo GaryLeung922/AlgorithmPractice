@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 //二叉树转化为先序的链表
 //考虑如果是中序呢？如果是后序呢？
 //无非就是想让你把左子树插入到右子树之上

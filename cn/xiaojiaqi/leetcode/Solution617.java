@@ -1,4 +1,7 @@
 package cn.xiaojiaqi.leetcode;
+
+import cn.xiaojiaqi.common.TreeNode;
+
 public class Solution617 {
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if(t1!=null&&t2!=null){
