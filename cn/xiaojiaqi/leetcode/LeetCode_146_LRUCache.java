@@ -1,6 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 /**
@@ -52,7 +53,7 @@ public class LeetCode_146_LRUCache {
         }
 
         public int removeLast(){
-            int remove = tail.value;
+            int remove = tail.key;
             if(size>1){
                 tail = tail.pre;
                 tail.next = null;
@@ -117,11 +118,11 @@ public class LeetCode_146_LRUCache {
         lRUCache.put(2, 1);
         //lRUCache.put(2, 2);
         lRUCache.get(2);    // return 1
-//        lRUCache.put(3, 3); // evicts key 2
-//        lRUCache.get(2);    // returns -1 (not found)
+        lRUCache.put(3, 2); // evicts key 2
+        lRUCache.get(2);    // returns -1 (not found)
 //        lRUCache.put(4, 4); // evicts key 1
 //        lRUCache.get(1);    // return -1 (not found)
-//        lRUCache.get(3);    // return 3
+        lRUCache.get(3);    // return 3
 //        lRUCache.get(4);    // return 4
     }
 
