@@ -1,4 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
+
+import cn.xiaojiaqi.common.TreeNode;
+
 /**
 public class TreeNode {
     int val = 0;
@@ -13,7 +16,7 @@ public class TreeNode {
 }
 */
 public class Solution21 {
-	public static boolean HasSubtree(TreeNode root1,TreeNode root2) {
+	public static boolean HasSubtree(TreeNode root1, TreeNode root2) {
         boolean flag = false;
         if(root1!=null){
             TreeNode cur = root1;

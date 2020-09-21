@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 /**
  * 对称的二叉树
  * 题目描述:

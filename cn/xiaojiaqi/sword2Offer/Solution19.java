@@ -1,6 +1,9 @@
 package cn.xiaojiaqi.sword2Offer;
+
+import cn.xiaojiaqi.common.TreeNode;
+
 public class Solution19 {
-    public boolean HasSubtree(TreeNode root1,TreeNode root2) {
+    public boolean HasSubtree(TreeNode root1, TreeNode root2) {
         String pre1 = preSerialize(root1);
         String pre2 = preSerialize(root2);
         for(int i=0;i<pre1.length()-pre2.length();i++){

@@ -1,4 +1,6 @@
 package cn.xiaojiaqi.sword2Offer;
+import cn.xiaojiaqi.common.TreeNode;
+
 import java.util.ArrayList;
 public class Solution3 {
     TreeNode KthNode(TreeNode pRoot, int k)

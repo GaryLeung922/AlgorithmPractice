@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 /**
  * 重建二叉树
  * 题目描述
@@ -14,7 +16,7 @@ public class JZ04 {
 
         TreeNode node = jz04.reConstructBinaryTree(new int[]{1,2,4,7,3,5,6,8}, new int[]{4,7,2,1,5,3,8,6});
     }
-    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+    public TreeNode reConstructBinaryTree(int [] pre, int [] in) {
         return redo(pre,in,0,pre.length-1,0,in.length-1);
     }
     // 分治+递归思想

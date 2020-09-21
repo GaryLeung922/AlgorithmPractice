@@ -1,9 +1,11 @@
 package cn.xiaojiaqi.sword2Offer;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 import java.util.ArrayList;
 
 public class Solution25 {
-   public static ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
+   public static ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
         ArrayList<ArrayList<Integer>> paths=new ArrayList<ArrayList<Integer>>();
         if(root==null)return paths;
         find(paths,new ArrayList<Integer>(),root,target);

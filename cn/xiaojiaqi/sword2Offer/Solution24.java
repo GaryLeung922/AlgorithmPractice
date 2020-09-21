@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 import java.util.ArrayList;
 
 public class Solution24 {
@@ -11,7 +13,7 @@ public class Solution24 {
             this.sums = sums;
         }
     }
-    public static ReturnData FindPath(TreeNode root,int target) {
+    public static ReturnData FindPath(TreeNode root, int target) {
         if(root.left==null&&root.right==null){
             ArrayList<Integer> arr = new ArrayList<>();
             ArrayList<ArrayList<Integer>> arrs = new ArrayList<>();

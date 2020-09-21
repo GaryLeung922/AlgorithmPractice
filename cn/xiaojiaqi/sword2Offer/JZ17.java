@@ -1,5 +1,7 @@
 package cn.xiaojiaqi.sword2Offer;
 
+import cn.xiaojiaqi.common.TreeNode;
+
 /**
  * 树的子结构
  * 题目描述
@@ -11,7 +13,7 @@ public class JZ17 {
     public static void main(String[] args) {
 
     }
-    public boolean HasSubtree(TreeNode root1,TreeNode root2) {
+    public boolean HasSubtree(TreeNode root1, TreeNode root2) {
         if(root1==null || root2==null)return false;
         String str1 = serialPre(root1);
         String str2 = serialPre(root2);
