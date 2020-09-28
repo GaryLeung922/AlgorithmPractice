@@ -47,4 +47,32 @@ public class LeetCode_121_BestTimeToBuyAndSellStock {
         }
     }
 
+    /**
+     * 暴力递归
+     */
+    static class Solution3 {
+        public int maxProfit(int[] prices) {
+            if (prices == null || prices.length < 2) return 0;
+            return maxProfit(prices, prices.length,1,false);
+        }
+
+        public int maxProfit(int[] prices, int i, int k, boolean flag){
+            if(i>=prices.length || i<0)return 0;
+            if(k<0)return 0;
+            if(flag){
+                return Math.max(maxProfit(prices,i-1,k-1,true)+prices[i], maxProfit(prices,i-1,k,true));
+            }else {
+                return Math.max(maxProfit(prices,i-1,k,true)-prices[i], maxProfit(prices,i-1,k,false));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] price = new int[]{7,1,5,3,6,4};
+
+        Solution3 solution = new Solution3();
+        int profit = solution.maxProfit(price);
+        System.out.println(profit);
+    }
+
 }

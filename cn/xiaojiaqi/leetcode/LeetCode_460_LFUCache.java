@@ -3,6 +3,10 @@ package cn.xiaojiaqi.leetcode;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Gary Leung
@@ -200,8 +204,6 @@ public class LeetCode_460_LFUCache {
         }
     }
 
-
-
     /**
      * Your LFUCache object will be instantiated and called as such:
      * LFUCache obj = new LFUCache(capacity);
@@ -214,10 +216,10 @@ public class LeetCode_460_LFUCache {
         code_460_lfuCache.main();
     }
     public void main(){
-        LFUCache cache = new LFUCache( 0 /* capacity */ );
-
-        cache.put(0,0);
-        cache.get(0);
+//        LFUCache cache = new LFUCache( 0 /* capacity */ );
+//
+//        cache.put(0,0);
+//        cache.get(0);
 //        cache.put(2, 2);
 //        cache.put(1, 1);
 //        cache.get(2);       // returns 1
@@ -229,5 +231,66 @@ public class LeetCode_460_LFUCache {
 //        cache.get(2);       // returns -1 (not found)
 //        cache.get(1);       // returns 3
 //        cache.get(4);       // returns 4
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 4, 100, TimeUnit.HOURS, new ArrayBlockingQueue<Runnable>(10));
+
+        Runnable run1 = new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    System.out.println("A");
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        Runnable run2 = new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    System.out.println("B");
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        Runnable run3 = new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    System.out.println("C");
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        Runnable run4 = new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    System.out.println("D");
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
+        executor.submit(run1);
+        executor.submit(run2);
+        executor.submit(run3);
+        executor.submit(run4);
+
     }
 }
