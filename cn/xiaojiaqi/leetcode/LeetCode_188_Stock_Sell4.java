@@ -3,6 +3,7 @@ package cn.xiaojiaqi.leetcode;
 import java.util.Arrays;
 
 /**
+ *  k为参数
  * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/yi-ge-tong-yong-fang-fa-tuan-mie-6-dao-gu-piao-wen/
  *
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
@@ -59,6 +60,7 @@ public class LeetCode_188_Stock_Sell4 {
      */
     class Solution2{
         public int maxProfit(int k, int[] prices) {
+            if(prices==null||prices.length<=1)return 0;
             if (k >= prices.length >>> 1) {
                 int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
 
@@ -83,6 +85,50 @@ public class LeetCode_188_Stock_Sell4 {
             }
 
             return T_ik0[k];
+        }
+    }
+
+    class Solution3{
+        public int maxProfit(int k, int[] prices) {
+            if(prices==null||prices.length<=1)return 0;
+            if (k >= prices.length /2) {
+                int n = prices.length;
+                int[][] dp = new int[n][2];
+                dp[0][0] = 0;
+                dp[0][1] = -prices[0];
+                for(int i=1;i<n;i++){
+                    dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1]+prices[i]);
+                    dp[i][1] = Math.max(dp[i-1][1], dp[i-1][0]-prices[i]);
+                }
+                return dp[n-1][0];
+            }
+            int n = prices.length;
+            int K = k + 1;
+            int res = 0;
+            int[][][] dp = new int[n][K][2];
+            dp[0][0][0] = 0;
+            dp[0][0][1] = -prices[0];
+            for (int i = 1; i < K; i++) {
+                dp[0][i][0] = -10000;
+                dp[0][i][1] = -10000;
+            }
+            for (int i = 1; i < n; i++) {
+                dp[i][0][0] = 0;
+                dp[i][0][1] = Math.max(dp[i - 1][0][1], -prices[i]);
+            }
+            for (int i = 1; i < n; i++) {
+                for (int j = 1; j < K; j++) {
+                    dp[i][j][0] = Math.max(dp[i - 1][j][0], dp[i - 1][j - 1][1] + prices[i]);
+                    dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i - 1][j][0] - prices[i]);
+                    if(i==n-1){
+                        res = Math.max(res, dp[i][j][0]);
+                    }
+                }
+            }
+            return res;
+
+
+
         }
     }
 

@@ -1,6 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
 /**
+ * k == 1
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
  *
  * DP[i][k][0] 表示i-th天，还剩k次交易，没有持有股票

@@ -1,6 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
 /**
+ * k<=2
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
  * @Author: liangjiaqi
  * @Date: 2020/7/4 9:29 PM
@@ -66,6 +67,7 @@ public class LeetCode_123_Stock_Sell_3 {
 
             int n = prices.length;
             int k = 2 + 1;
+            int res = 0;
             int[][][] dp = new int[n][k][2];
             dp[0][0][0] = 0;
             dp[0][0][1] = -prices[0];
@@ -81,9 +83,12 @@ public class LeetCode_123_Stock_Sell_3 {
                 for (int j = 1; j < k; j++) {
                     dp[i][j][0] = Math.max(dp[i - 1][j][0], dp[i - 1][j - 1][1] + prices[i]);
                     dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i - 1][j][0] - prices[i]);
+                    if(i==n-1){
+                        res = Math.max(res, dp[i][j][0]);
+                    }
                 }
             }
-            return dp[n - 1][k - 1][0];
+            return res;
         }
     }
 
