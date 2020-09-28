@@ -54,4 +54,43 @@ public class LeetCode_123_Stock_Sell_3 {
             return buy[0][2];
         }
     }
+
+    /**
+     *  通用解法
+     *  dp[i][j][0] :第i-th天，已经进行j次交易，当前没有持有股票
+     *  dp[i][j][1] :第i-th天，已经进行j次交易，当前持有股票
+     */
+    static class Solution3{
+        public int maxProfit(int[] prices) {
+            if (prices == null || prices.length < 2) return 0;
+
+            int n = prices.length;
+            int k = 2 + 1;
+            int[][][] dp = new int[n][k][2];
+            dp[0][0][0] = 0;
+            dp[0][0][1] = -prices[0];
+            for (int i = 1; i < k; i++) {
+                dp[0][i][0] = -10000;
+                dp[0][i][1] = -10000;
+            }
+            for (int i = 1; i < n; i++) {
+                dp[i][0][0] = 0;
+                dp[i][0][1] = Math.max(dp[i - 1][0][1], -prices[i]);
+            }
+            for (int i = 1; i < n; i++) {
+                for (int j = 1; j < k; j++) {
+                    dp[i][j][0] = Math.max(dp[i - 1][j][0], dp[i - 1][j - 1][1] + prices[i]);
+                    dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i - 1][j][0] - prices[i]);
+                }
+            }
+            return dp[n - 1][k - 1][0];
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution3 solution3 = new Solution3();
+        int[] prices = new int[]{3,3,5,0,0,3,1,4};
+        int profit = solution3.maxProfit(prices);
+        System.out.println(profit);
+    }
 }

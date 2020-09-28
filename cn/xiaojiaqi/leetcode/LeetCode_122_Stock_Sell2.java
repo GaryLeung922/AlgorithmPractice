@@ -67,4 +67,38 @@ public class LeetCode_122_Stock_Sell2 {
             return total;
         }
     }
+
+    /**
+     *  通用解法
+     *  dp[i][j][0] :第i-th天，已经进行j次交易，当前没有持有股票
+     *  dp[i][j][1] :第i-th天，已经进行j次交易，当前持有股票
+     *
+     *  dp[i][j][0] = max(dp[i-1][j][0], dp[i-1][j-1][1]+prices[i])
+     *  解释：第i-th天，已经进行j次交易，当前没有持有股票 可以由 第（i-1）-th天，已经进行j次交易，当天没有持有股票，在i-th天并决定继续不买入 转移而来，
+     *      也可以由 第（i-1）-th天，已经进行j-1次交易，当天持有股票，决定在i-th天卖出 转移而来
+     *
+     *  dp[i][j][1] = max(dp[i-1][j][1], dp[i-1][j-1][0]-prices[i])
+     *  解释：同上
+     *
+     *  basecase:
+     *  i==0 时，dp[0][j][0] = 0 ; dp[0][j][1] = -price[0]
+     *
+     *  j==0 时，dp[i][0][0] = 0 ; dp[i][0][1] = max(dp[i-1][0][1], -price[i])
+     *
+     *  这里不限交易天数，故可以省去
+     */
+    class Solution4{
+        public int maxProfit(int[] prices){
+            if (prices == null || prices.length < 2) return 0;
+            int n = prices.length;
+            int[][] dp = new int[n][2];
+            dp[0][0] = 0;
+            dp[0][1] = -prices[0];
+            for(int i=1;i<n;i++){
+                dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1]+prices[i]);
+                dp[i][1] = Math.max(dp[i-1][1], dp[i-1][0]-prices[i]);
+            }
+            return dp[n-1][0];
+        }
+    }
 }

@@ -48,31 +48,38 @@ public class LeetCode_121_BestTimeToBuyAndSellStock {
     }
 
     /**
-     * 暴力递归
+     * DP
      */
     static class Solution3 {
         public int maxProfit(int[] prices) {
             if (prices == null || prices.length < 2) return 0;
-            return maxProfit(prices, prices.length,1,false);
-        }
-
-        public int maxProfit(int[] prices, int i, int k, boolean flag){
-            if(i>=prices.length || i<0)return 0;
-            if(k<0)return 0;
-            if(flag){
-                return Math.max(maxProfit(prices,i-1,k-1,true)+prices[i], maxProfit(prices,i-1,k,true));
-            }else {
-                return Math.max(maxProfit(prices,i-1,k,true)-prices[i], maxProfit(prices,i-1,k,false));
+            int n = prices.length;
+            int k = 2;
+            int[][][] dp = new int[n][k][2];
+            dp[0][0][0] = 0;
+            dp[0][0][1] = -prices[0];
+            for(int i=1;i<n;i++){
+                for(int j=0;j<k;j++){
+                    if(j-1==-1){
+                        dp[i][j][0] = 0;
+                        dp[i][j][1] = Math.max(dp[i-1][j][1],-prices[i]);
+                        continue;
+                    }
+                    dp[i][j][0] = Math.max(dp[i-1][j][0], dp[i-1][j-1][1]+prices[i]);
+                    dp[i][j][1] = Math.max(dp[i-1][j][1], dp[i-1][j][0]-prices[i]);
+                }
             }
+            return dp[n-1][k-1][0];
         }
     }
 
     public static void main(String[] args) {
-        int[] price = new int[]{7,1,5,3,6,4};
+        int[] prices = new int[]{7,1,5,3,6,4};
 
-        Solution3 solution = new Solution3();
-        int profit = solution.maxProfit(price);
-        System.out.println(profit);
+        Solution3 solution3 = new Solution3();
+
+        int maxProfit = solution3.maxProfit(prices);
+        System.out.println(maxProfit);
     }
 
 }
