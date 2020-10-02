@@ -20,7 +20,9 @@ public class LeetCode_042_Trapping_Rain_Water {
             if(height==null||height.length<=2)return 0;
 
             int max = -1;
+            // leftMax[i]表示 height[0..i]区间的最大值
             int[] leftMax = new int[height.length];
+            // rightMax[i]表示 height[i..n-1]区间的最大值
             int[] rightMax = new int[height.length];
             int trapRain = 0;
 
