@@ -1,6 +1,5 @@
 package cn.xiaojiaqi.oj;
 
-import sun.jvm.hotspot.utilities.Assert;
 
 import java.util.ArrayList;
 import java.util.Arrays;
