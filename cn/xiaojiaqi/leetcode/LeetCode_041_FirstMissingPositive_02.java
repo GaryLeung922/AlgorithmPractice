@@ -7,7 +7,9 @@ package cn.xiaojiaqi.leetcode;
  */
 public class LeetCode_041_FirstMissingPositive_02 {
     /**
-     *
+     * 解法一：
+     * 用位图当辅助数组
+     * 时间O(n) 空间O(n)
      */
     static class Solution {
         public int firstMissingPositive(int[] nums) {
@@ -42,6 +44,35 @@ public class LeetCode_041_FirstMissingPositive_02 {
             int b = index % 32;
 
             return (nums[a] & 1 << b) > 0 ? 1 : 0;
+        }
+    }
+
+    /**
+     * 解法二：元素放到其相应的位置上
+     * 时间O(n) 空间O(1)
+     */
+    static class Solution2 {
+        public int firstMissingPositive(int[] A) {
+            if(A==null||A.length==0)return 1;
+
+            for(int i = 0; i < A.length; ++ i) {
+                while(A[i] > 0 && A[i] <= A.length && A[A[i] - 1] != A[i]) {
+                    swap(A,i, A[i] - 1);
+                }
+            }
+
+            for(int i = 0; i < A.length; ++ i) {
+                if(A[i] != i + 1) {
+                    return i + 1;
+                }
+            }
+
+            return A.length + 1;
+        }
+        private void swap(int[] nums, int a, int b){
+            int tmp = nums[b];
+            nums[b] = nums[a];
+            nums[a] = tmp;
         }
     }
 

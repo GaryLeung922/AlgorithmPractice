@@ -45,6 +45,7 @@ public class Solution32 {
         }
         
     }
+
     //DP  
     public static int longestValidParentheses2(String s) {
         if(s==null||s.length()<=1)return 0;
