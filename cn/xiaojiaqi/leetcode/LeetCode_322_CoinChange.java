@@ -22,7 +22,10 @@ package cn.xiaojiaqi.leetcode;
  */
 public class LeetCode_322_CoinChange {
     /**
-     * DP 解法一  时间O(nm)空间O(nm)
+     * DP 解法一
+     * dp[i][j] 当前第i枚银币，需要凑成金额j,最少需要的银币枚数
+     * dp[i][j] = min(dp[i-1][j],dp[i][j-coins[i-1]]);
+     * 时间O(nm)空间O(nm)
      */
     class Solution {
         public int coinChange(int[] coins, int amount) {
@@ -90,7 +93,9 @@ public class LeetCode_322_CoinChange {
 
 
     /**
-     * DP 解法二 时间O(nm) 空间O(m)
+     * DP 解法二
+     * dp[i] 表示凑成i零钱的最少硬币数
+     * 时间O(nm) 空间O(m)
      */
     class Solution3 {
         public int coinChange(int[] coins, int amount) {
@@ -98,6 +103,8 @@ public class LeetCode_322_CoinChange {
 
             // dp[m] 表示凑成m的最少硬币数
             int[] dp = new int[amount+1];
+            // base case
+            dp[0] = 0;
 
             // dp[m] = min dp[m-Cj]+1   (j 从0->n-1)
             for(int i=1;i<dp.length;i++){

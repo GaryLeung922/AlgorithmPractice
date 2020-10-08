@@ -1,7 +1,7 @@
 package cn.xiaojiaqi.leetcode;
 
 /**
- *
+ * 换零钱的方法数
  * @Author: liangjiaqi
  * @Date: 2020/8/25 9:31 PM
  */
@@ -54,6 +54,24 @@ public class LeetCode_518_Coin_Change_2 {
                         dp[i][j] = dp[i - 1][j];
             }
             return dp[n][amount];
+        }
+    }
+
+    /**
+     * 压缩DP
+     * 通过观察可以发现，dp 数组的转移只和 dp[i][..] 和 dp[i-1][..] 有关，所以可以压缩状态，进一步降低算法的空间复杂度：
+     */
+    class Solution03{
+        int change(int amount, int[] coins) {
+            int n = coins.length;
+            int[] dp = new int[amount + 1];
+            dp[0] = 1; // base case
+            for (int i = 0; i < n; i++)
+                for (int j = 1; j <= amount; j++)
+                    if (j - coins[i] >= 0)
+                        dp[j] = dp[j] + dp[j-coins[i]];
+
+            return dp[amount];
         }
     }
 }
