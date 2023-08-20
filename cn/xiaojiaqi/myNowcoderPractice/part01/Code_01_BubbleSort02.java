@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class Code_01_BubbleSort02 extends AbstractSort{
     /**
      * 思路：[a,b,c,d,e,f,g]
-     * 1. 顺序比较，指针指向第一个位置, 比较指针指向的位置与它的下一个位置。例如，a，b。如果辞职a>b，交换位置，此时指针指向下一个位置
+     * 1. 顺序比较，指针指向第一个位置, 比较指针指向的位置与它的下一个位置。例如，a，b。如果此时a>b，交换位置，此时指针指向下一个位置
      * @param
      * @return
      */

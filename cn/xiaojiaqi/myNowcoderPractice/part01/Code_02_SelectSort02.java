@@ -1,9 +1,5 @@
 package cn.xiaojiaqi.myNowcoderPractice.part01;
 
-import cn.xiaojiaqi.common.TestUtil;
-
-import java.util.Arrays;
-
 /**
  * @Author: liangjiaqi
  * @Date: 2020/5/3 5:38 PM

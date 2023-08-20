@@ -24,8 +24,12 @@ public class TestUtil {
 		return null;
 	}
 
-	public static int[] generateArr(int cols) {
-		return generateArr(1,cols,Integer.MIN_VALUE,Integer.MAX_VALUE)[0];
+	public static int[] generateArr(int length) {
+		return generateArr(1,length,Integer.MIN_VALUE,Integer.MAX_VALUE)[0];
+	}
+
+	public static int[] generateArr(int length, int left, int right) {
+		return generateArr(1,length,left,right)[0];
 	}
 
 	public static int[] generateArr(){

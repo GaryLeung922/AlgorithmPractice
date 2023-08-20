@@ -1,4 +1,4 @@
-package part01;
+package cn.xiaojiaqi.myNowcoderPractice.part01;
 
 /**
  * 小和问题：
